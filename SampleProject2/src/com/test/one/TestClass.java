@@ -7,6 +7,7 @@ public class TestClass {
 	@Test
 	public void sample()
 	{ 
+		
 		System.out.println("*****Sample in TestClass**********");
 	}
 
