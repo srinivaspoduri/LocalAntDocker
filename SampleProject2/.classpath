@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/ATU_Selenium_Utilities_3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/cucumber-testng-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/cucumeber.zip"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/log4j.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/poi-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/poi-examples-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/poi-excelant-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/poi-ooxml-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/poi-ooxml-schemas-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/poi-scratchpad-3.14-beta1-20151223.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/selenium-java-2.46.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/selenium-java-2.46.0-srcs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/selenium-server-standalone-2.53.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/serializer-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/Users/srini/Desktop/DownloadsBackup/seleniumJARS (2)/seleniumJARS/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
