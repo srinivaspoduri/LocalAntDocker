@@ -1,46 +1,52 @@
-<project name="Sample Ant build" basedir=".">
-	<!-- ========== Initialize Properties =================================== -->
-	<!-- set global properties for build -->
-	<property name="basedir" value="." />
-	<property name="lib" value="${basedir}/lib" />
-	<property name="src" value="${basedir}/src" />
-	<property name="bin" value="${basedir}/bin" />
-	<property name="report-dir" value="${basedir}/Test-Report" />
-	<property name="testng-report-dir" value="${report-dir}/TestNGreport" />
-	
-	<!-- ====== Set the classpath ====  -->
+<project name="VPlan_Automation" basedir=".">
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="build.dir" value="${basedir}/bin" />
+	<property name="testng_output.dir" value="${basedir}/test-output" />
+	<property name="lib.dir" value="${basedir}/lib" />
+
+	<!-- get class path, used for build -->
 	<path id="classpath">
-		<pathelement location="${bin}" />
-		<fileset dir="${lib}">
-			<include name="*.jar" />
-		</fileset>
+	<pathelement location="${build.dir}" />
+	<fileset dir="${lib.dir}" includes="*.jar"/>
 	</path>
+	<!-- create build folder, testng_output folder and remove old log file -->
+	<target name="init">
+	<delete dir="${basedir}/bin" />
+	<delete dir="${basedir}/test-output" />
+	<delete dir="${basedir}/Screenshot" />
+	<delete dir="${basedir}/testng-xslt" />
+	<mkdir dir="${basedir}/test-output" />
+	<mkdir dir="${basedir}/Screenshot" />
+	<mkdir dir="${basedir}/bin" />
+	</target>
+	<!-- build all java file to class binary -->
+	<target name="compile" depends="init"  >
+	<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath" includeantruntime="false" debug="true" fork="true">
+	</javac>
 	
-	<!-- Delete directories  -->
-	<target name="delete-dir">
-		<delete dir="${bin}" />
-		<delete dir="${report-dir}" />
+	<echo> /* Compiled Directory Classes */ </echo>
 	</target>
 	
-	<!-- Creating directories -->
-	<target name="create" depends="delete-dir">
-		<mkdir dir="${bin}" />
-		<mkdir dir="${report-dir}" />
+ 	<!-- Config for HealthCheck -->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="classpath" >
+	<classpath>
+	<!-- locate testng jar file-->
+     <pathelement location="${lib.dir}/testng-6.9.13.6.jar"/>
+     </classpath>
+    </taskdef>
+	<!-- execute testng after compile, then generate report -->
+	<target name="Run" depends="compile" >
+	<!-- config testng -->
+	<testng outputdir="${testng_output.dir}" classpathref="classpath" useDefaultListeners="true">
+	<!-- execute testcase follow testng.xml -->
+	 <!--<xmlfileset dir="${basedir}" includes="VPlan_HealthCheck.xml"/>-->	
+		
+	<xmlfileset dir="${basedir}" includes="TestNG.xml"/>
+	
+		
+		
+	<!-- generate report title -->
+	</testng>
 	</target>
 	
-	<!-- Compile the java code from ${src} into ${bin} -->
-	<target name="compile" depends="create">
-		<javac srcdir="${src}" classpathref="classpath" includeAntRuntime="No" destdir="${bin}" />
-		<echo> /* Compiled Directory Classes */ </echo>
-	</target>
-	
-	<!-- Runs the file and generates Reportng report for TestNG-->
-	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="classpath" />
-	
-	<target name="testng-execution" depends="compile">
-		<mkdir dir="${testng-report-dir}" />
-		<testng outputdir="${testng-report-dir}" classpathref="classpath" useDefaultListeners="false">
-			<xmlfileset dir="${basedir}" includes="TestNG.xml" />
-		</testng>
-	</target>
 </project>
